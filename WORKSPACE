@@ -96,21 +96,6 @@ http_archive(
     urls = ["https://github.com/bazelbuild/rules_cc/releases/download/0.0.9/rules_cc-0.0.9.tar.gz"],
 )
 
-http_archive(
-    name = "com_grail_bazel_toolchain",
-    canonical_id = "0.7.2",
-    sha256 = "f7aa8e59c9d3cafde6edb372d9bd25fb4ee7293ab20b916d867cd0baaa642529",
-    strip_prefix = "bazel-toolchain-0.7.2",
-    url = "https://github.com/grailbio/bazel-toolchain/archive/0.7.2.tar.gz",
-)
-
-load("@com_grail_bazel_toolchain//toolchain:rules.bzl", "llvm_toolchain")
-
-llvm_toolchain(
-    name = "llvm_toolchain",
-    llvm_version = "14.0.0",
-)
-
 # Register the auto configured rules_cc toolchain for local execution.
 load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies", "rules_cc_toolchains")
 
